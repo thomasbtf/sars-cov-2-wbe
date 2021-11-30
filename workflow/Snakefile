@@ -23,7 +23,7 @@ report: "report/workflow.rst"
 # Allow users to fix the underlying OS via singularity.
 # This container defines the underlying OS for each job when using the workflow
 # with --use-conda --use-singularity
-singularity: "docker://condaforge/mambaforge"
+container: "docker://condaforge/mambaforge"
 
 
 include: "rules/common.smk"
