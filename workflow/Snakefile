@@ -23,7 +23,7 @@ report: "report/workflow.rst"
 # Allow users to fix the underlying OS via singularity.
 # This container defines the underlying OS for each job when using the workflow
 # with --use-conda --use-singularity
-singularity: "docker://condaforge/mambaforge"
+container: "docker://condaforge/mambaforge"
 
 
 include: "rules/common.smk"
@@ -37,5 +37,3 @@ include: "rules/reporting.smk"
 rule all:
     input:
         "results/wbe-report.zip",
-        # The first rule should define the default target files
-        # Subsequent target rules can be specified below. They should start with all_*.

@@ -1,8 +1,9 @@
 # SARS-CoV-2 Wastewater Based Ecology
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.11-brightgreen.svg)](https://snakemake.bitbucket.io)
+[![Tests](https://github.com/thomasbtf/sars-cov-2-wbe/actions/workflows/main.yaml/badge.svg)](https://github.com/thomasbtf/sars-cov-2-wbe/actions/workflows/main.yaml)
 
-A workflow for quantifying SARS-CoV-2 lineage abundances (e.g., B.1.167.2 aka Delta) in short-read sequencing data of wastewater.
+A workflow for quantifying SARS-CoV-2 lineage abundances (e.g., `B.1.167.2` aka `Delta`) in short-read paired-end sequencing data of wastewater.
 
 ## Usage
 
