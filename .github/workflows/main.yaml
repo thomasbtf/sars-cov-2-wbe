@@ -34,6 +34,8 @@ jobs:
 
   Linting:
     runs-on: ubuntu-latest
+    env:
+      GISAID_API_TOKEN: ${{ secrets.GISAID_API_TOKEN }}
     steps:
       - uses: actions/checkout@v1
       - name: Lint workflow
@@ -49,6 +51,8 @@ jobs:
   #   needs:
   #     - Formatting
   #     - Linting
+      # env:
+      #   GISAID_API_TOKEN: ${{ secrets.GISAID_API_TOKEN }}
   #   steps:
 
   #     - uses: actions/checkout@v2
