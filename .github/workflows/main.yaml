@@ -34,21 +34,26 @@ jobs:
 
   Linting:
     runs-on: ubuntu-latest
+    env:
+      GISAID_API_TOKEN: ${{ secrets.GISAID_API_TOKEN }}
     steps:
       - uses: actions/checkout@v1
       - name: Lint workflow
-        uses: snakemake/snakemake-github-action@v1.18.0
+        uses: snakemake/snakemake-github-action@v1.24.0
         with:
           directory: .
           snakefile: workflow/Snakefile
           args: "--lint"
 
 # TODO: Search for Testdata and activate GitHub Actions testing
+
   # Testing:
   #   runs-on: ubuntu-latest
   #   needs:
   #     - Formatting
   #     - Linting
+      # env:
+      #   GISAID_API_TOKEN: ${{ secrets.GISAID_API_TOKEN }}
   #   steps:
 
   #     - uses: actions/checkout@v2
@@ -57,14 +62,14 @@ jobs:
   #       uses: textbook/git-checkout-submodule-action@2.0.0
 
   #     - name: Test workflow (local test data)
-  #       uses: snakemake/snakemake-github-action@v1.18.0
+  #       uses: snakemake/snakemake-github-action@v1.24.0
   #       with:
   #         directory: .tests
   #         snakefile: workflow/Snakefile
   #         args: "--use-conda --show-failed-logs -j 10 --conda-cleanup-pkgs"
 
   #     - name: Test report
-  #       uses: snakemake/snakemake-github-action@v1.18.0
+  #       uses: snakemake/snakemake-github-action@v1.24.0
   #       with:
   #         directory: .test
   #         snakefile: workflow/Snakefile
