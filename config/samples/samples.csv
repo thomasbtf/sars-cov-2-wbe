@@ -1,0 +1,2 @@
+sample_name,fq1,fq2
+test-sample,/local/master-snakemake-workflow-sars-cov2/data/old/132728_S23_L001_R1_001.fastq.gz,/local/master-snakemake-workflow-sars-cov2/data/old/132728_S23_L001_R2_001.fastq.gz

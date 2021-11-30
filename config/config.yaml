@@ -1,0 +1,29 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.tsv file that contains
+# one row per sample. It can be parsed easily via pandas.
+pepfile: config/samples/config.yaml
+
+virus-reference-genome: NC_045512.2
+
+adapters: "--adapter_sequence AGATCGGAAGAGCACACGTCTGAACTCCAGTCA --adapter_sequence_r2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
+
+quality-criteria:
+  # minimal length of acceptable reads
+  min-length-reads: 30
+  # average quality of acceptable reads (PHRED)
+  min-PHRED: 20
+
+abundance-quantification:
+  # minimum reported lineage fraction after quantification
+  min-fraction: 0.02
+  # paths to store genomes that are extracted from the full GISAID data
+  extracted-lineage-genomes: resources/genomes
+  # flag for using all lineage reference from GISAIDS Epicov database. API key must be exported as env var GISAID_API_TOKEN.
+  use-gisaid: False
+  # GenBank accession for downloading lineage-references
+  # only used, if use-gisaid flag is set to False
+  references:
+    B.1.1.7: MZ773928
+    B.1.351: MZ433432
+    P.1: MZ477759
+    B.1.617.2: OK091006

@@ -1,0 +1,41 @@
+# The main entry point of your workflow.
+# After configuring, running snakemake -n in a clone of this repository should successfully execute a dry-run of the workflow.
+
+from snakemake.utils import min_version
+
+
+envvars:
+    "GISAID_API_TOKEN",
+
+
+min_version("6.7.0")
+
+
+configfile: "config/config.yaml"
+
+
+pepfile: config["pepfile"]
+
+
+report: "report/workflow.rst"
+
+
+# Allow users to fix the underlying OS via singularity.
+# This container defines the underlying OS for each job when using the workflow
+# with --use-conda --use-singularity
+singularity: "docker://condaforge/mambaforge"
+
+
+include: "rules/common.smk"
+include: "rules/ref.smk"
+include: "rules/read_preprocessing.smk"
+include: "rules/quality_control.smk"
+include: "rules/abundance_quantification.smk"
+include: "rules/reporting.smk"
+
+
+rule all:
+    input:
+        "results/wbe-report.zip",
+        # The first rule should define the default target files
+        # Subsequent target rules can be specified below. They should start with all_*.

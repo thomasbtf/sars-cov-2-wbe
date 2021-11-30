@@ -1,0 +1,10 @@
+channels:
+  - conda-forge
+  - bioconda
+  - anaconda
+dependencies:
+  - pandas =1.2
+  - jupyter =1.0
+  - altair =4.1
+  - altair_saver =0.5
+  - pysam =0.16.0
